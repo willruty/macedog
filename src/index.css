@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here.
+All colors MUST be HSL. */
+
+@layer base {
+  :root {
+    /* Core palette - Macedog (earthy, golden, natural green, orange, white) */
+    --background: 30 22% 93%; /* slightly darker warm sand */
+    --foreground: 24 30% 12%; /* deep brown */
+
+    --card: 0 0% 100%;
+    --card-foreground: 24 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 30% 12%;
+
+    --primary: 24 85% 52%; /* warm brand orange */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 30 25% 88%; /* deeper sand */
+    --secondary-foreground: 24 30% 18%;
+
+    --muted: 30 18% 90%;
+    --muted-foreground: 25 15% 40%;
+
+    --accent: 42 90% 55%; /* golden */
+    --accent-foreground: 24 35% 15%;
+
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 24 85% 52%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar (kept for shadcn sidebar components) */
+    --sidebar-background: 30 33% 98%;
+    --sidebar-foreground: 24 30% 12%;
+    --sidebar-primary: 152 35% 28%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 30 25% 92%;
+    --sidebar-accent-foreground: 24 30% 12%;
+    --sidebar-border: 30 20% 88%;
+    --sidebar-ring: 42 90% 55%;
+
+    /* Brand extras */
+    --brand-orange: 24 85% 52%;
+    --brand-whatsapp: 142 72% 34%;
+    --brand-whatsapp-foreground: 0 0% 100%;
+
+    /* Shadows & gradients */
+    --shadow-elegant: 0 12px 28px -10px hsl(var(--primary) / 0.28);
+    --shadow-glow: 0 0 36px hsl(var(--accent) / 0.35);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--primary)) 100%);
+  }
+
+  .dark {
+    --background: 222.2 24% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 24% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 24% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 152 35% 42%; /* lighter green for dark */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 16% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 16% 18%;
+    --muted-foreground: 215 20% 70%;
+
+    --accent: 42 90% 56%;
+    --accent-foreground: 24 30% 12%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 16% 22%;
+    --input: 217.2 16% 22%;
+    --ring: 152 35% 60%;
+
+    --sidebar-background: 222.2 24% 12%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 152 35% 42%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217.2 16% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 16% 22%;
+    --sidebar-ring: 152 35% 60%;
+  }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-sans; }
+}
+
+/* Utilities & component-level tokens */
+@layer utilities {
+  .shadow-elegant { box-shadow: var(--shadow-elegant); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  /* Interactive utilities */
+  .hover-scale { @apply transition-transform duration-200 hover:scale-105; }
+
+  .story-link { @apply relative inline-block; }
+  .story-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    height: 2px; width: 100%;
+    background: hsl(var(--primary));
+    transform-origin: bottom right;
+    transform: scaleX(0);
+    transition: transform 300ms ease;
+  }
+  .story-link:hover::after {
+    transform-origin: bottom left;
+    transform: scaleX(1);
+  }
+}
