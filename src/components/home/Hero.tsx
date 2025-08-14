@@ -30,7 +30,7 @@ const Hero = () => {
           decoding="async"
           className="h-full w-full object-cover object-bottom opacity-100"
         />
-        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-preto to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 to-transparent" aria-hidden="true" />
       </div>
 
       <div ref={containerRef} className="relative h-full">
