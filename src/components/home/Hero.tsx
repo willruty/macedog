@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/dogs.png";
+// import heroImage from "@/assets/dogs.png";
 import { useRef } from "react";
 import BrandLogo from "@/components/BrandLogo";
 
@@ -23,13 +23,16 @@ const Hero = () => {
     <header className="relative overflow-hidden shadow-elegant" onMouseMove={handleMove}>
 
       <div className="absolute inset-0 z-[0]">
-        <img
+        <div 
+          className="h-full w-full object-cover object-bottom opacity-100 bg-gradient-to-br from-primary via-accent to-secondary"
+        />
+        {/*<img
           src={heroImage}
           alt="Ilustração acolhedora de pet shop no estilo Ghibli"
           loading="eager"
           decoding="async"
           className="h-full w-full object-cover object-bottom opacity-100"
-        />
+        />*/}
         <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 to-transparent" aria-hidden="true" />
       </div>
 
